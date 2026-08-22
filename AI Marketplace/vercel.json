@@ -5,15 +5,10 @@
   "framework": "vite",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
-  "functions": {
-    "backend/src/index.js": {
-      "maxDuration": 30
-    }
-  },
   "github": {
     "enabled": true,
     "autoAlias": true,
