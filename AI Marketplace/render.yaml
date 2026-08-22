@@ -23,14 +23,15 @@ services:
       - key: NEMOTRON_MODEL
         sync: false
       - key: FRONTEND_URL
-        sync: false
+        value: https://ai-marketplace-frontend-x5ew.onrender.com
 
   - type: web
     name: ai-marketplace-frontend
     env: static
     plan: free
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/dist
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
     routes:
       - type: rewrite
         source: /*
