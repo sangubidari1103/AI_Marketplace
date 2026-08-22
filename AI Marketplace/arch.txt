@@ -1,0 +1,74 @@
+1.🔎 AI Model Discovery
+2.🛡️ Trust & Verification
+3.pricing and monetization
+4.🚀 Deployment
+5.creators can upload their ai model and our ai api can give the trust score to it 
+
+Architecture.
+                         ┌─────────────────────────┐
+                         │          USER           │
+                         │                         │
+                         │ "I need a cheap vision  │
+                         │  model for my laptop"   │
+                         └────────────┬────────────┘
+                                      │
+                                      ▼
+                    ┌─────────────────────────────────┐
+                    │       REACT + VITE FRONTEND     │
+                    │                                 │
+                    │  • Landing / Dashboard         │
+                    │  • Model Discovery             │
+                    │  • AI Model Advisor            │
+                    │  • Model Details                │
+                    │  • Model Comparison             │
+                    │  • Trust & Verification         │
+                    │  • Creator Marketplace          │
+                    │  • Deployment UI                │
+                    └───────────────┬─────────────────┘
+                                    │
+                              HTTPS / REST
+                                    │
+                                    ▼
+                    ┌─────────────────────────────────┐
+                    │        NODE.JS BACKEND          │
+                    │                                 │
+                    │  API Gateway / Business Logic  │
+                    │                                 │
+                    │  ├── /models                   │
+                    │  ├── /search                   │
+                    │  ├── /recommend                 │
+                    │  ├── /compare                   │
+                    │  ├── /trust                     │
+                    │  ├── /deploy                    │
+                    │  └── /creators                  │
+                    └───────┬───────────────┬─────────┘
+                            │               │
+                 ┌──────────┘               └──────────┐
+                 ▼                                     ▼
+       ┌──────────────────────┐             ┌─────────────────────┐
+       │       SUPABASE       │             │   NVIDIA NIM API    │
+       │                      │             │                     │
+       │ • Models             │             │ Nemotron 3 Ultra    │
+       │ • Users              │             │                     │
+       │ • Creators           │             │ • Understand query  │
+       │ • Benchmarks         │             │ • Recommend models  │
+       │ • Pricing            │             │ • Explain choices   │
+       │ • Trust scores       │             │ • Compare models    │
+       │ • Reviews            │             │ • Assist deployment │
+       └──────────────────────┘             └─────────────────────┘
+                                                        │
+                                                        ▼
+                                             ┌─────────────────────┐
+                                             │  AI RECOMMENDATION  │
+                                             │       ENGINE        │
+                                             │                     │
+                                             │ Requirement         │
+                                             │      ↓              │
+                                             │ Model filtering     │
+                                             │      ↓              │
+                                             │ Compatibility       │
+                                             │      ↓              │
+                                             │ Ranking             │
+                                             │      ↓              │
+                                             │ Explanation         │
+                                             └─────────────────────┘
