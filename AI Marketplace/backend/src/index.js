@@ -25,8 +25,25 @@ export const supabaseAdmin = createClient(
 )
 
 // Middleware
+const allowedOrigins = [
+    'http://localhost:5173',
+    'https://ai-marketplace-92kj-*.vercel.app',  // All preview deployments
+    'https://ai-marketplace.vercel.app',         // Production (update when you have it)
+].filter(Boolean)
+
 app.use(cors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+        if (!origin) return callback(null, true) // Allow non-browser requests
+        const isAllowed = allowedOrigins.some(pattern => {
+            if (pattern.includes('*')) {
+                const regex = new RegExp('^' + pattern.replace(/\*/g, '.*') + '$')
+                return regex.test(origin)
+            }
+            return pattern === origin
+        })
+        if (isAllowed) callback(null, true)
+        else callback(new Error('Not allowed by CORS'))
+    },
     credentials: true
 }))
 app.use(express.json())
